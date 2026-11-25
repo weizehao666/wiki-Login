@@ -1,0 +1,37 @@
+<!--
+Name: Wei Zehao
+Student ID: S1580667
+Login GUI Page
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wiki Admin Login</title>
+    <style>
+        body { font-family: Arial; max-width:450px; margin:60px auto; padding: 20px; border:2px solid #222; }
+        .error { color: red; font-weight:bold; margin-bottom:15px; }
+        .item { margin:18px 0; }
+        label { font-size:22px; display:block; margin-bottom:8px;}
+        input[type="text"],input[type="password"] { width:100%; padding:10px; font-size:18px; box-sizing:border-box; }
+        button { background-color:#428bca; color:white; border:none; font-size:20px; padding:10px 30px; cursor:pointer; }
+    </style>
+</head>
+<body>
+    <h2>Wiki Administrator Login</h2>
+    <div class="error" th:text="${errorMsg}" th:if="${errorMsg}"></div>
+    <form th:action="@{/login}" th:object="${loginForm}" method="post">
+        <div class="item">
+            <label>Username</label>
+            <input type="text" th:field="*{username}" />
+        </div>
+        <div class="item">
+            <label>Password</label>
+            <input type="password" th:field="*{password}" />
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</body>
+</html>
